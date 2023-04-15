@@ -1,5 +1,5 @@
-import Tile from "./components/tiles/tiles";
-import Navbar from "./components/Navbar/Navbar";
+import Tile from "../tiles/tiles";
+import Navbar from "../Navbar/Navbar";
 import React from "react";
 
 export default function Homepage() {
@@ -9,13 +9,13 @@ export default function Homepage() {
     backgroundColor: "#635985",
     height: "100%",
     width: "100%",
-    margin: 0,
+    margin: 10,
     padding: 0,
     overflow: "hidden",
   };
   return (
     <div style={styles}>
-      <Navbar />
+      {/* <Navbar /> */}
       <Tile />
     </div>
   );

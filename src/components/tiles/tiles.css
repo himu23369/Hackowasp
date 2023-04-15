@@ -1,4 +1,5 @@
   .tile {
+    border: 3px black;
     position: relative;
     display: flex;
     flex-direction: column;
