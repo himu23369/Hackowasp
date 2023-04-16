@@ -83,14 +83,14 @@ const StayEZNavbar = () => {
             </Nav.Link>
           )}
 
-          <Nav.Link href="#home" className="text-light">
+          <Nav.Link href="/home" className="text-light">
             Home
           </Nav.Link>
 
-          <Nav.Link href="#about" className="text-light">
+          <Nav.Link href="/about" className="text-light">
             About
           </Nav.Link>
-          <Nav.Link href="#help" className="text-light">
+          <Nav.Link href="/help" className="text-light">
             Help
           </Nav.Link>
           {showLoginBtn && (
