@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./components/Login";
 import SignUp from "./components/Signup";
 import UserDetails from "./components/userDeatils";
-import Homepage from "./components/HomePage/Homepage";
 import Tile from "./components/tiles/tiles";
 import Navbar from "./components/Navbar/Navbar";
 import Container from "react-bootstrap/Container";

@@ -3,21 +3,40 @@ import "./Navbar.css";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { render } from "@testing-library/react";
+
+const handleLogout = async () => {
+  fetch("http://localhost:5000/logout-user", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data, "Logout Succesfull");
+      if (data.status === "ok") {
+        window.localStorage.removeItem("token");
+        window.location.href = "./sign-in";
+      }
+    });
+};
 
 const StayEZNavbar = () => {
   const [Userdata, setUserdata] = useState({
     userData: "",
   });
 
-  const showLoginBtn = Userdata.userData == "" ? true : false;
+  const showLoginBtn =
+    typeof Userdata.userData.fname == "undefined" ? true : false;
   // console.log(showLoginBtn);
-  const logoutFn = () => {
+  const logoutFn = async () => {
+    await handleLogout();
     setUserdata({
       userData: "",
     });
-    const showLoginBtn = Userdata.userData == "" ? true : false;
-    console.log("s", showLoginBtn);
   };
   useEffect(() => {
     const fetchData = async () => {
@@ -36,6 +55,8 @@ const StayEZNavbar = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data, "userData");
+          console.log(data.fname);
+          console.log("s", showLoginBtn);
           setUserdata({ userData: data.data });
         });
     };
@@ -46,9 +67,16 @@ const StayEZNavbar = () => {
     <>
       <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div className="container">
-          <Link className="navbar-brand" to={"/sign-in"}>
-            StayEz
-          </Link>
+          {showLoginBtn && (
+            <Link className="navbar-brand" to={"/sign-in"}>
+              StayEz
+            </Link>
+          )}
+          {!showLoginBtn && (
+            <Link className="navbar-brand" to={"/homepage"}>
+              StayEz
+            </Link>
+          )}
           {!showLoginBtn && (
             <Nav.Link href="/homepage" className="text-light">
               {welcomemsg}
@@ -70,12 +98,18 @@ const StayEZNavbar = () => {
               variant="outline-secondary"
               id="Login"
               className=" text-light"
+              href="/sign-in"
             >
               Login
             </Button>
           )}
           {showLoginBtn && (
-            <Button variant="light" id="Signup" className="text-dark">
+            <Button
+              variant="light"
+              id="Signup"
+              className="text-dark"
+              href="sign-up"
+            >
               Signup
             </Button>
           )}
@@ -86,7 +120,7 @@ const StayEZNavbar = () => {
               id="logout"
               className=" text-light"
               href="/sign-in"
-              onclick="logoutFn()"
+              onClick={logoutFn}
             >
               Logout
             </Button>
