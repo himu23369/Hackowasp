@@ -6,3 +6,6 @@
 #Signup {
   margin-right: 60vw;
 } */
+.navbar {
+  z-index: 10;
+}

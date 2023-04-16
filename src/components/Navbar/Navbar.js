@@ -65,8 +65,9 @@ const StayEZNavbar = () => {
   const welcomemsg = "Welcome " + Userdata.userData.fname;
   return (
     <>
-      <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-        <div className="container">
+      <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark ">
+        {/* <div > */}
+        <div className="container fluid ">
           {showLoginBtn && (
             <Link className="navbar-brand" to={"/sign-in"}>
               StayEz
@@ -78,26 +79,26 @@ const StayEZNavbar = () => {
             </Link>
           )}
           {!showLoginBtn && (
-            <Nav.Link href="/homepage" className="text-light">
+            <Nav.Link href="/homepage" className="text-light mx-2">
               {welcomemsg}
             </Nav.Link>
           )}
 
-          <Nav.Link href="/homepage" className="text-light">
+          <Nav.Link href="/homepage" className="text-light mx-2">
             Home
           </Nav.Link>
 
-          <Nav.Link href="/about" className="text-light">
+          <Nav.Link href="/about" className="text-light mx-2">
             About
           </Nav.Link>
-          <Nav.Link href="/help" className="text-light">
+          <Nav.Link href="/help" className="text-light mx-2">
             Help
           </Nav.Link>
           {showLoginBtn && (
             <Button
               variant="outline-secondary"
               id="Login"
-              className=" text-light"
+              className=" text-light mx-2"
               href="/sign-in"
             >
               Login
@@ -107,7 +108,7 @@ const StayEZNavbar = () => {
             <Button
               variant="light"
               id="Signup"
-              className="text-dark"
+              className="text-dark mx-2"
               href="sign-up"
             >
               Signup
@@ -118,7 +119,7 @@ const StayEZNavbar = () => {
             <Button
               variant="outline-danger"
               id="logout"
-              className=" text-light"
+              className=" text-light mx-2"
               href="/sign-in"
               onClick={logoutFn}
             >
@@ -126,6 +127,7 @@ const StayEZNavbar = () => {
             </Button>
           )}
         </div>
+        {/* </div> */}
       </nav>
     </>
   );

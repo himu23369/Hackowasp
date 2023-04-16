@@ -16,7 +16,7 @@ import Background from "./components/Background/Background";
 import Footer from "./components/Footer/Footer";
 import FoodOrder from "./components/FoodOrder/FoodOrder";
 import BookingForm from "./components/BookingForm/BookingForm";
-
+import RoomServicePage from "./components/RoomService/RoomService";
 function App() {
   return (
     <Router>
@@ -38,6 +38,7 @@ function App() {
                 <Route path="/userDetails" element={<UserDetails />} />
                 <Route path="/checkin" element={<BookingForm />} />
                 <Route path="/order" element={<FoodOrder />} />
+                <Route path="/roomservice" element={<RoomServicePage />} />
               </Routes>
             </div>
           </Col>
