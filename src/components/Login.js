@@ -6,12 +6,14 @@ export default class Login extends Component {
     this.state = {
       email: "",
       password: "",
+      key: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(e) {
     e.preventDefault();
     const { email, password } = this.state;
+    const key = password;
     fetch("http://localhost:5000/login-user", {
       method: "Post",
       crossDomain: true,
@@ -23,6 +25,7 @@ export default class Login extends Component {
       body: JSON.stringify({
         email,
         password,
+        key,
       }),
     })
       .then((res) => res.json())

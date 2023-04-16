@@ -17,6 +17,7 @@ import Footer from "./components/Footer/Footer";
 import FoodOrder from "./components/FoodOrder/FoodOrder";
 import BookingForm from "./components/BookingForm/BookingForm";
 import RoomServicePage from "./components/RoomService/RoomService";
+import NfcReader from "./components/Room_key/Room_key"
 function App() {
   return (
     <Router>
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/checkin" element={<BookingForm />} />
                 <Route path="/order" element={<FoodOrder />} />
                 <Route path="/roomservice" element={<RoomServicePage />} />
+                <Route path="/nfc" element={<NfcReader />} />
               </Routes>
             </div>
           </Col>

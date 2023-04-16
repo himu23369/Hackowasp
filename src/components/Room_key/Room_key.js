@@ -37,7 +37,12 @@ function NfcReader() {
   };
 
   return (
-    <div className="container">
+    <div  style={{
+      display:"flex",
+      alignItems:"center",
+      justifyContent:"center",
+      marginTop:"20%"
+    }}>
       <button 
   style={{
     backgroundColor: "green",
