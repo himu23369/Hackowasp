@@ -12,7 +12,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Background from "./components/Background/Background";
-import Home from "./components/Home/Home";
+// import Home from "./components/Home/Home";
+import Footer from "./components/Footer/Footer";
+import FoodOrder from "./components/FoodOrder/FoodOrder";
+import BookingForm from "./components/BookingForm/BookingForm";
 
 function App() {
   return (
@@ -32,13 +35,15 @@ function App() {
                 <Route path="/sign-in" element={<Login />} />
                 <Route path="/sign-up" element={<SignUp />} />
                 <Route path="/homepage" element={<Tile />} />
-                {/* <Route path="/home" element={<Home />} /> */}
                 <Route path="/userDetails" element={<UserDetails />} />
+                <Route path="/checkin" element={<BookingForm />} />
+                <Route path="/order" element={<FoodOrder />} />
               </Routes>
             </div>
           </Col>
         </Row>
       </Container>
+      <Footer />
     </Router>
   );
 }
